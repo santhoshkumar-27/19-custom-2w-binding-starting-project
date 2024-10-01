@@ -1,4 +1,4 @@
-import { Component, input, model, output } from '@angular/core';
+import { Component, EventEmitter, Input, input, model, Output, output } from '@angular/core';
 
 @Component({
   selector: 'app-rect',
@@ -9,8 +9,11 @@ import { Component, input, model, output } from '@angular/core';
 })
 export class RectComponent {
   // Todo: Implement custom two-way binding
-  rectSize = input.required<rectSize>();
-  rectSizeChange = output<rectSize>();
+  // rectSize = input.required<rectSize>();
+  // rectSizeChange = output<rectSize>();
+
+  @Input({required: true}) rectSize!: rectSize;
+  @Output() rectSizeChange = new EventEmitter<rectSize>()
   // rectSize = model.required<rectSize>();
 
   onReset() {
