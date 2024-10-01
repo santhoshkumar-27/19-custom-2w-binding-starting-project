@@ -12,12 +12,12 @@ export class RectComponent {
   // rectSize = input.required<rectSize>();
   // rectSizeChange = output<rectSize>();
 
-  @Input({required: true}) rectSize!: rectSize;
-  @Output() rectSizeChange = new EventEmitter<rectSize>()
-  // rectSize = model.required<rectSize>();
+  // @Input({required: true}) rectSize!: rectSize;
+  // @Output() rectSizeChange = new EventEmitter<rectSize>()
+  rectSize = model.required<rectSize>();
 
   onReset() {
-    this.rectSizeChange.emit({
+    this.rectSize.set({
       height: '200',
       width: '200'
     })
